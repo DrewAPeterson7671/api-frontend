@@ -1,0 +1,9 @@
+<li><h3><%=result.fetch("city")%> ,  <%= result.fetch("country") %></h3></li>
+<h2> Reviews </h2>
+<% reviews = result.fetch("reviews") %>
+<% reviews.each do |review| %>
+<li>Author: <%= review.fetch("author") %> - Rating: <%= review.fetch("rating") %> Stars</li>
+<ul>
+  <li><%= review.fetch("body") %></li>
+</ul>
+<% end %>

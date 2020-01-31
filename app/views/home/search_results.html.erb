@@ -1,0 +1,27 @@
+<h1>Search Results</h1>
+
+<%= form_with url: "/search" do |f| %>
+  <%= f.label :search %>
+  <%= f.text_field :search %>
+  <%= f.submit  %>
+<% end %>
+
+<h5>gadfgadfg</h5>
+<% if @trips %>
+<% @trips.each do |trip| %>
+<ul>
+  <li><h3>hi!!!</h3></li>
+  <ul>
+    <h2> Reviews </h2>
+    <% reviews = trip.fetch("reviews") %>
+    <% reviews.each do |review| %>
+    <li>Author: <%= review.fetch("author") %> - Rating: <%= review.fetch("rating") %> Stars</li>
+    <ul>
+      <li><%= review.fetch("body") %></li>
+    </ul>
+    <% end %>
+  </ul>
+</ul>
+<% end %>
+
+<% end %>
